@@ -15,7 +15,7 @@ var map = new mapboxgl.Map({
   zoom: 14.5
 })
 
-function makePointLayer () {
+function addStarIcon () {
   var location = {
     type: 'FeatureCollection',
     features: [{
@@ -43,7 +43,7 @@ function makePointLayer () {
 }
 
 map.on('load', () => {
-  makePointLayer()
+  addStarIcon()
 })
 
 // --------
