@@ -1,9 +1,60 @@
-let arrowLeft = document.querySelector('#arrowLeft')
-let pa = document.querySelector('.point_a')
-let pb = document.querySelector('.point_b')
-let pc = document.querySelector('.page-content')
+// --------
+// Change these values to move where the map is centered & where the star is located
+// --------
+const breakfastCoor = [-77.031, 38.897]
 
-var drawConnector = function () {
+// --------
+// Map code
+// --------
+mapboxgl.accessToken = 'pk.eyJ1IjoibWFwdGltZWRjIiwiYSI6ImNqMGJjYTBmdzAyeWIyd3JyMjFrcG9udGQifQ.YyGehvpe0E1DzjSWi2TeDQ'
+
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/maptimedc/cj0to2bhs00842rqrb370qzgd',
+  center: breakfastCoor,
+  zoom: 14.5
+})
+
+function makePointLayer () {
+  var location = {
+    type: 'FeatureCollection',
+    features: [{
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: breakfastCoor
+      }
+    }]
+  }
+
+  map.addLayer({
+    'id': 'whereWeBreakfasting',
+    'type': 'symbol',
+    'source': {
+      'type': 'geojson',
+      'data': location
+    },
+    'layout': {
+      'icon-image': 'star-empty',
+      'icon-offset': 0.75,
+      'icon-ignore-placement': true
+    }
+  })
+}
+
+map.on('load', () => {
+  makePointLayer()
+})
+
+// --------
+// Point the arrow to center of the map
+// --------
+function drawConnector () {
+  let arrowLeft = document.querySelector('#arrowLeft')
+  let pa = document.querySelector('.point_a')
+  let pb = document.querySelector('.point_b')
+  let pc = document.querySelector('.page-content')
+
   let pos_aLeft = {
     x: pa.getBoundingClientRect().left - pc.getBoundingClientRect().left,
     y: pa.getBoundingClientRect().top - pc.getBoundingClientRect().top
@@ -24,19 +75,11 @@ var drawConnector = function () {
   arrowLeft.setAttribute('d', dStrLeft)
 }
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFwdGltZWRjIiwiYSI6ImNqMGJjYTBmdzAyeWIyd3JyMjFrcG9udGQifQ.YyGehvpe0E1DzjSWi2TeDQ'
-var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/maptimedc/cj0to2bhs00842rqrb370qzgd', //stylesheet location
-    center: [-77.032182, 38.8970177], // starting position
-    zoom: 14 // starting zoom
-})
+drawConnector()
 
-// map.on('load', function() {  
-// }
-
-map.on('movestart', function(e) {
+// --------
+// Remove the arrow when the map moves.
+// --------
+map.on('movestart', function (e) {
   document.querySelector('#arrowLeft').style.display = 'none'
 })
-
-drawConnector()
