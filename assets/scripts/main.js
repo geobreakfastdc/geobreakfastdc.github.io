@@ -36,7 +36,7 @@ function addStarIcon () {
     },
     'layout': {
       'icon-image': 'star-empty',
-      'icon-offset': 0.75,
+      'icon-size': 0.75,
       'icon-ignore-placement': true
     }
   })
