@@ -29,7 +29,7 @@ var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/maptimedc/cj0to2bhs00842rqrb370qzgd', //stylesheet location
     center: [-77.032182, 38.8970177], // starting position
-    zoom: 15 // starting zoom
+    zoom: 14 // starting zoom
 })
 
 // map.on('load', function() {  
