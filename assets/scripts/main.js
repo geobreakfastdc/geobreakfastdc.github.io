@@ -2,6 +2,7 @@
 // Change these values to move where the map is centered & where the star is located
 // --------
 const breakfastCoor = [-77.031, 38.897]
+const isUpcoming = false
 
 // --------
 // Map code
@@ -12,7 +13,7 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/maptimedc/cj0to2bhs00842rqrb370qzgd',
   center: breakfastCoor,
-  zoom: 14.5
+  zoom: 13.5
 })
 
 function addStarIcon () {
@@ -42,9 +43,13 @@ function addStarIcon () {
   })
 }
 
-map.on('load', () => {
-  addStarIcon()
-})
+if (isUpcoming) {
+  map.on('load', () => {
+    addStarIcon()
+  })
+
+  drawConnector()
+}
 
 // --------
 // Point the arrow to center of the map
@@ -74,8 +79,6 @@ function drawConnector () {
 
   arrowLeft.setAttribute('d', dStrLeft)
 }
-
-drawConnector()
 
 // --------
 // Remove the arrow when the map moves.
