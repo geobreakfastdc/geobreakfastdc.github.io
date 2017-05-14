@@ -1,9 +1,9 @@
 /* ======
 	VARIABLES  
 	======== */
-$main-c: #000;
-$secondary-c: #000;
-$teritary-c: #000;
+$text-c: #32413f;
+$yell-c: #FFE89A;
+$blue-c: #88E1DA;
 
 $bold: 700;
 
@@ -11,6 +11,7 @@ $bold: 700;
 	  BODY  
 	======== */
 body {
+	color: $text-c;
 	font-family: 'Hind', sans-serif;
 	font-weight: 400;
 	line-height: 1.5rem;
@@ -57,6 +58,48 @@ article {
 p {
 	padding: 0;
 	margin: 0;
+}
+
+a {
+	color: $text-c;
+	text-decoration: none;
+	transition: 0.2s all;
+	&:visited {
+		color: $text-c;
+	}
+	&:hover {
+		color: desaturate(darken($blue-c, 40), 20);
+	}
+	&:active {
+		color: desaturate(darken($blue-c, 40), 20);
+	}
+	&:focus {
+		color: desaturate(darken($blue-c, 40), 20);
+	}
+}
+
+.header-link {
+	position: relative;
+	&:hover{
+		.twit-bird{
+			-ms-transform: rotate(10deg); /* IE 9 */
+			-webkit-transform: rotate(10deg); /* Chrome, Safari, Opera */
+			transform: rotate(10deg);
+			top: -1.9rem;
+			fill: desaturate(darken($blue-c, 25), 20);
+		}
+	}
+}
+
+.twit-bird {
+	position: absolute;
+	width: 40px;
+	height: 34px;
+	bottom: 0;
+	margin-left: 0.25rem;
+	top: -2rem;
+	transition: 0.2s all;
+	fill: desaturate(darken($blue-c, 30), 20);
 }
 
 .page-content {
@@ -172,9 +215,9 @@ p {
 /* FFF7B3 */
 
 button {
-  background: #FFE89A;
-  border: 1px solid #CEBC7E;
-  color: #918245;
+  background: $yell-c;
+  border: 1px solid desaturate(darken($yell-c, 38), 20);
+  color: desaturate(darken($yell-c, 38), 20);
   font: inherit;
   margin-top: 1rem;
   box-shadow: 0 2px 2px rgba(0,0,0,0.1);
@@ -189,9 +232,9 @@ button {
      -moz-user-select: none;
       -ms-user-select: none;
 	&:hover {
-		background-color: #88E1DA;
-		color: #2F8B8D;
-		border-color: #2F8B8D;
+		background-color: $blue-c;
+	  color: desaturate(darken($blue-c, 30), 20);
+		border-color: desaturate(darken($blue-c, 30), 20);;
 	}
 	&:focus {
 		outline: none;

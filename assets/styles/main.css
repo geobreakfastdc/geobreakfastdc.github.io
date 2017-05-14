@@ -5,6 +5,7 @@
 	  BODY  
 	======== */
 body {
+  color: #32413f;
   font-family: 'Hind', sans-serif;
   font-weight: 400;
   line-height: 1.5rem;
@@ -52,6 +53,40 @@ article {
 p {
   padding: 0;
   margin: 0; }
+
+a {
+  color: #32413f;
+  text-decoration: none;
+  transition: 0.2s all; }
+  a:visited {
+    color: #32413f; }
+  a:hover {
+    color: #2f6e69; }
+  a:active {
+    color: #2f6e69; }
+  a:focus {
+    color: #2f6e69; }
+
+.header-link {
+  position: relative; }
+  .header-link:hover .twit-bird {
+    -ms-transform: rotate(10deg);
+    /* IE 9 */
+    -webkit-transform: rotate(10deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(10deg);
+    top: -1.9rem;
+    fill: #46a39c; }
+
+.twit-bird {
+  position: absolute;
+  width: 40px;
+  height: 34px;
+  bottom: 0;
+  margin-left: 0.25rem;
+  top: -2rem;
+  transition: 0.2s all;
+  fill: #3f918b; }
 
 .page-content {
   position: relative;
@@ -155,8 +190,8 @@ p {
 /* FFF7B3 */
 button {
   background: #FFE89A;
-  border: 1px solid #CEBC7E;
-  color: #918245;
+  border: 1px solid #c29a16;
+  color: #c29a16;
   font: inherit;
   margin-top: 1rem;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
@@ -174,8 +209,8 @@ button {
   -ms-user-select: none; }
   button:hover {
     background-color: #88E1DA;
-    color: #2F8B8D;
-    border-color: #2F8B8D; }
+    color: #3f918b;
+    border-color: #3f918b; }
   button:focus {
     outline: none; }
 
