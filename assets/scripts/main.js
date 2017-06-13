@@ -1,8 +1,8 @@
 // --------
 // Change these values to move where the map is centered & where the star is located
 // --------
-const breakfastCoor = [-77.0283798, 38.8964539]
-const isUpcoming = false
+const breakfastCoor = [-77.0171797, 38.9022986]
+const isUpcoming = true
 
 // --------
 // Map code
@@ -13,7 +13,7 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/maptimedc/cj0to2bhs00842rqrb370qzgd',
   center: breakfastCoor,
-  zoom: 13.5
+  zoom: 14
 })
 
 function addStarIcon () {
