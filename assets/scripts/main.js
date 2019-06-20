@@ -1,7 +1,7 @@
 // --------
 // Change these values to move where the map is centered & where the star is located
 // --------
-const breakfastCoor = [-77.028234, 38.932701]
+const breakfastCoor = [-77.0462634, 38.909737]
 const isUpcoming = true
 
 // --------
